@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block mainbody %}
+<h3>网站名称：{{sitename}}</h3>
+<h3>域名：{{url}}</h3>
+<div>
+    <h4>Blog教程目录</h4>
+    <ul>
+        {% for item in list %}
+        <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h4>Blog教程作者信息</h4>
+    <ul>
+        {% for key, value in mydict.items %}
+        <li>{{key}}: {{value}}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h4>所有文章</h4>
+    <ul>
+        {% for article in allarticle %}
+            <li>
+                标题：{{article.title}}<br>
+                栏目：{{article.category}}<br>
+                作者：{{article.user}}<br>
+                时间：{{article.created_time}}<br>
+                <img src="/media/{{article.img}}" alt="{{article.title}}" width="600" height="300">
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
